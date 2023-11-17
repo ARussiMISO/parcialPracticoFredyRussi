@@ -6,8 +6,6 @@ import { PrimaryGeneratedColumn, Column, ManyToMany, Entity } from 'typeorm';
 @Entity()
 export class AerolineaEntity {
     @PrimaryGeneratedColumn('uuid')
-    @IsNumber()
-    @IsNotEmpty()
     id: number;
 
     @Column()

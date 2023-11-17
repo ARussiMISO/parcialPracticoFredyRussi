@@ -27,7 +27,7 @@ describe('AerolineaService', () => {
   });
 
   const seedDatabase = async () => {
-    repository.clear
+    repository.clear();
     aerolineaLista = [];
 
     for (let i = 0; i < 5; i++) {

@@ -5,8 +5,6 @@ import { PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, Entity } from "t
 @Entity()
 export class AeropuertoEntity {
     @PrimaryGeneratedColumn('uuid')
-    @IsNumber()
-    @IsNotEmpty()
     id: number;
   
     @Column()

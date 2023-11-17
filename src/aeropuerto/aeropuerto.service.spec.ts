@@ -27,7 +27,7 @@ describe('AeropuertoService', () => {
   });
 
   const seedDatabase = async () => {
-    repository.clear
+    repository.clear();
     aeropuertoLista = [];
 
     for (let i = 0; i < 5; i++) {
