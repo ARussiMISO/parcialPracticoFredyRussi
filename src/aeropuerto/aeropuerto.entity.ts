@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString, MaxDate, MaxLength, MinLength } from "@nestjs/class-validator";
-import { AerolineaEntity } from "src/aerolinea/aerolinea.entity";
+import { AerolineaEntity } from "../aerolinea/aerolinea.entity";
 import { PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, Entity } from "typeorm";
 
 @Entity()
@@ -19,7 +19,7 @@ export class AeropuertoEntity {
     @Column()
     @IsString()
     @IsNotEmpty()
-    @MaxLength(10)
+    @MaxLength(3)
     @MinLength(3)
     codigo: string;
 

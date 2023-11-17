@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { AerolineaEntity } from './aerolinea.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { BusinessLogicException, BusinessError } from 'src/shared/errors/business-errors';
+import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
 
 @Injectable()
 export class AerolineaService {
@@ -11,7 +12,7 @@ export class AerolineaService {
         private readonly aerolineaRepository: Repository<AerolineaEntity>
     ) { }
 
-    async findAll(): Promise<AerolineaEntity> {
+    async findAll(): Promise<AerolineaEntity[]> {
         return await this.aerolineaRepository.find({ relations: ["aeropuertos"] });
     }
 
@@ -24,6 +25,9 @@ export class AerolineaService {
     }
 
     async create(aerolinea: AerolineaEntity): Promise<AerolineaEntity> {
+        const fechaFundacion: Date = new Date(aerolinea.fechaFundacion);
+        if (fechaFundacion > new Date())
+            throw new BusinessLogicException("La fecha de fundación debe ser menor a la actual", BusinessError.PRECONDITION_FAILED);
         return await this.aerolineaRepository.save(aerolinea);
     }
 
@@ -32,6 +36,9 @@ export class AerolineaService {
         if (!aerolineaGuardada)
             throw new BusinessLogicException("La aerolinea con el id dado no encontrada", BusinessError.NOT_FOUND);
 
+        const fechaFundacion: Date = new Date(aerolinea.fechaFundacion);
+        if (fechaFundacion > new Date())
+            throw new BusinessLogicException("La fecha de fundación debe ser menor a la actual", BusinessError.PRECONDITION_FAILED);
         return await this.aerolineaRepository.save({ ...aerolineaGuardada, ...aerolinea });
     }
 

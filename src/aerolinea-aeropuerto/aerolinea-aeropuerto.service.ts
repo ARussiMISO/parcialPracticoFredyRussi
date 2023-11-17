@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AerolineaEntity } from 'src/aerolinea/aerolinea.entity';
-import { AeropuertoEntity } from 'src/aeropuerto/aeropuerto.entity';
-import { BusinessLogicException, BusinessError } from 'src/shared/errors/business-errors';
+import { AerolineaEntity } from '../aerolinea/aerolinea.entity';
+import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
+import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class AerolineaAeropuertoService {
         private readonly aerolineaRepository: Repository<AerolineaEntity>
     ) { }
 
-    async addAeropuertoToAerolinea(aerolineaId: number, aeropuertoId: number): Promise<AerolineaEntity> {
+    async addAirportToAirline(aerolineaId: number, aeropuertoId: number): Promise<AerolineaEntity> {
         const aerolineaEntity: AerolineaEntity = await this.aerolineaRepository.findOne({
             where: { id: aerolineaId }, relations: ['aeropuertos']
         });
@@ -31,7 +31,7 @@ export class AerolineaAeropuertoService {
         return await this.aerolineaRepository.save(aerolineaEntity);
     }
 
-    async findAeropuertoByAerolineaIdAeropuertoId(aerolineaId: number, aeropuertoId: number): Promise<AeropuertoEntity> {
+    async findAirportFromAirline(aerolineaId: number, aeropuertoId: number): Promise<AeropuertoEntity> {
         const aerolineaEntity: AerolineaEntity = await this.aerolineaRepository.findOne({
             where: { id: aerolineaId }, relations: ['aeropuertos']
         });
@@ -50,7 +50,7 @@ export class AerolineaAeropuertoService {
 
     }
 
-    async findAeropuertosByAerolineaId(aerolineaId: number): Promise<AeropuertoEntity[]> {
+    async findAirportsFromAirline(aerolineaId: number): Promise<AeropuertoEntity[]> {
         const aerolineaEntity: AerolineaEntity = await this.aerolineaRepository.findOne({
             where: { id: aerolineaId }, relations: ['aeropuertos']
         });
@@ -60,7 +60,7 @@ export class AerolineaAeropuertoService {
         return aerolineaEntity.aeropuertos
     }
 
-    async updateAeropuertosAerolinea(aerolineaId: number, aeropuertos: AeropuertoEntity[]): Promise<AerolineaEntity> {
+    async updateAirportsFromAirline(aerolineaId: number, aeropuertos: AeropuertoEntity[]): Promise<AerolineaEntity> {
         const aerolineaEntity: AerolineaEntity = await this.aerolineaRepository.findOne({
             where: { id: aerolineaId }, relations: ['aeropuertos']
         });
@@ -77,7 +77,7 @@ export class AerolineaAeropuertoService {
         return await this.aerolineaRepository.save(aerolineaEntity);
     }
 
-    async deleteAeropuertoAerolinea(aerolineaId: number, aeropuertoId: number) {
+    async deleteAirportFromAirline(aerolineaId: number, aeropuertoId: number) {
         const aerolineaEntity: AerolineaEntity = await this.aerolineaRepository.findOne({
             where: { id: aerolineaId }, relations: ['aeropuertos']
         });

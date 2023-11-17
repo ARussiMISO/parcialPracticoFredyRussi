@@ -1,6 +1,6 @@
 import { IsNumber, IsNotEmpty, IsString, MaxLength, MinLength, IsDate, MaxDate, IsUrl } from '@nestjs/class-validator';
 import { Transform } from 'class-transformer';
-import { AeropuertoEntity } from 'src/aeropuerto/aeropuerto.entity';
+import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
 import { PrimaryGeneratedColumn, Column, ManyToMany, Entity } from 'typeorm';
 
 @Entity()
