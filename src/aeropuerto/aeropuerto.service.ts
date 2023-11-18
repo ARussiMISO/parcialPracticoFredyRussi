@@ -1,10 +1,9 @@
-import { AeropuertoEntity } from 'src/aeropuerto/aeropuerto.entity';
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { AeropuertoEntity } from './aeropuerto.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AeropuertoEntity } from 'src/aerolinea/aerolinea.entity';
 import { Repository } from 'typeorm';
-import { BusinessLogicException, BusinessError } from 'src/shared/errors/business-errors';
+import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
 
 @Injectable()
 export class AeropuertoService {
@@ -13,7 +12,7 @@ export class AeropuertoService {
         private readonly aeropuertoRepository: Repository<AeropuertoEntity>
     ) { }
 
-    async findAll(): Promise<AeropuertoEntity> {
+    async findAll(): Promise<AeropuertoEntity[]> {
         return await this.aeropuertoRepository.find({ relations: ["aerolineas"] });
     }
 
@@ -26,6 +25,8 @@ export class AeropuertoService {
     }
 
     async create(aeropuerto: AeropuertoEntity): Promise<AeropuertoEntity> {
+        if (aeropuerto.codigo.length != 3)
+            throw new BusinessLogicException("La longitud del codigo del aeropuerto debe ser igual a 3", BusinessError.PRECONDITION_FAILED);
         return await this.aeropuertoRepository.save(aeropuerto);
     }
 
@@ -34,6 +35,8 @@ export class AeropuertoService {
         if (!aeropuertoGuardado)
             throw new BusinessLogicException("El aeropuerto con el id dado no encontrado", BusinessError.NOT_FOUND);
 
+        if (aeropuerto.codigo.length != 3)
+            throw new BusinessLogicException("La longitud del codigo del aeropuerto debe ser igual a 3", BusinessError.PRECONDITION_FAILED);
         return await this.aeropuertoRepository.save({ ...aeropuertoGuardado, ...aeropuerto });
     }
 
