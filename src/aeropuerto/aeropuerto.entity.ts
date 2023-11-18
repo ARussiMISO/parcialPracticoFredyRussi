@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsNumber, IsString, MaxDate, MaxLength, MinLength } from "@nestjs/class-validator";
+/* eslint-disable prettier/prettier */
+import { IsNotEmpty, IsString, MaxLength, MinLength } from "@nestjs/class-validator";
 import { AerolineaEntity } from "../aerolinea/aerolinea.entity";
 import { PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, Entity } from "typeorm";
 
