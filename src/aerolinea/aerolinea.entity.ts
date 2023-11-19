@@ -1,25 +1,23 @@
-import { IsNumber, IsNotEmpty, IsString, MaxLength, MinLength, IsDate, MaxDate, IsUrl } from '@nestjs/class-validator';
+/* eslint-disable prettier/prettier */
+import { IsNotEmpty, IsString, IsDate, MaxDate, IsUrl } from '@nestjs/class-validator';
 import { Transform } from 'class-transformer';
 import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
-import { PrimaryGeneratedColumn, Column, ManyToMany, Entity } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, ManyToMany, Entity, JoinTable } from 'typeorm';
 
 @Entity()
 export class AerolineaEntity {
     @PrimaryGeneratedColumn('uuid')
+    @IsNotEmpty()
     id: number;
 
     @Column()
     @IsString()
     @IsNotEmpty()
-    @MaxLength(20)
-    @MinLength(3)
     nombre: string;
 
     @Column()
     @IsString()
     @IsNotEmpty()
-    @MaxLength(100)
-    @MinLength(3)
     descripcion: string;
 
     @Column()
@@ -38,5 +36,6 @@ export class AerolineaEntity {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
     })
+    @JoinTable()
     aeropuertos: AeropuertoEntity[];
 }

@@ -5,8 +5,6 @@ export class AeropuertoDto {
 
     @IsString()
     @IsNotEmpty()
-    @MaxLength(20)
-    @MinLength(3)
     nombre: string;
   
     @IsString()
@@ -17,13 +15,9 @@ export class AeropuertoDto {
 
     @IsString()
     @IsNotEmpty()
-    @MaxLength(20)
-    @MinLength(4)
     pais: string;
 
     @IsString()
     @IsNotEmpty()
-    @MaxLength(20)
-    @MinLength(4)
     ciudad: string;
 }

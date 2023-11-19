@@ -68,7 +68,7 @@ export class AerolineaAeropuertoService {
             throw new BusinessLogicException("La aerolinea con el id dado no encontrada", BusinessError.NOT_FOUND);
 
         for (const aeropuerto of aeropuertos) {
-            const aeropuertoEntity: AeropuertoEntity = await this.aeropuertoRepository.findOne({ where: { id: aeropuerto.id }, relations: ["aerolineas"] });
+            const aeropuertoEntity: AeropuertoEntity = await this.aeropuertoRepository.findOne({ where: { id: aeropuerto.id }});
             if (!aeropuertoEntity)
                 throw new BusinessLogicException("El aeropuerto con el id dado no encontrado", BusinessError.NOT_FOUND);
         }
