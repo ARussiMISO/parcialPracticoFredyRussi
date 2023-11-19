@@ -6,7 +6,7 @@ import { PrimaryGeneratedColumn, Column, ManyToMany, Entity, JoinTable } from 't
 
 @Entity()
 export class AerolineaEntity {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     @IsNotEmpty()
     id: number;
 
