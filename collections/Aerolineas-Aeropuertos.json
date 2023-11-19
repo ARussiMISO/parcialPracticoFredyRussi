@@ -105,7 +105,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/airlines/{{airline_id}}/airports/{{airport_id_invalid}}",
+					"raw": "{{baseUrl}}/airlines/{{airline_id}}/airports/0",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -113,7 +113,7 @@
 						"airlines",
 						"{{airline_id}}",
 						"airports",
-						"{{airport_id_invalid}}"
+						"0"
 					]
 				}
 			},
@@ -213,7 +213,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+					"raw": "{{baseUrl}}/airlines/{{airline_id}}/airports/1",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -221,7 +221,7 @@
 						"airlines",
 						"{{airline_id}}",
 						"airports",
-						"{{airport_id}}"
+						"1"
 					]
 				}
 			},
@@ -247,7 +247,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"id\": \"68439f85-047d-4cb9-be9c-fb5c40bdfdda\",\r\n        \"nombre\": \"Aeropuerto 98\",\r\n        \"codigo\": \"A98\",\r\n        \"pais\": \"COLOMBIA98\",\r\n        \"ciudad\": \"Bogota98\"\r\n    },\r\n    {\r\n        \"id\": \"34dd2b91-5df4-414d-9e0c-744392aecf93\",\r\n        \"nombre\": \"Aeropuerto 1\",\r\n        \"codigo\": \"A01\",\r\n        \"pais\": \"COLOMBIA\",\r\n        \"ciudad\": \"Bogota\"\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"id\": 4,\r\n        \"nombre\": \"Aeropuerto 98\",\r\n        \"codigo\": \"A98\",\r\n        \"pais\": \"COLOMBIA98\",\r\n        \"ciudad\": \"Bogota98\"\r\n    },\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Aeropuerto 1\",\r\n        \"codigo\": \"A01\",\r\n        \"pais\": \"COLOMBIA\",\r\n        \"ciudad\": \"Bogota\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -293,7 +293,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"id\": \"d91d7fdd-9eed-46a3-8d65-e78eb75448bd\",\r\n        \"nombre\": \"Aeropuerto 98\",\r\n        \"codigo\": \"A98\",\r\n        \"pais\": \"COLOMBIA98\",\r\n        \"ciudad\": \"Bogota98\"\r\n    },\r\n    {\r\n        \"id\": \"3e8fc9f8-a0e0-4e00-970e-55e2a51b8f81\",\r\n        \"nombre\": \"Aeropuerto X\",\r\n        \"codigo\": \"A0X\",\r\n        \"pais\": \"COLOMBIA\",\r\n        \"ciudad\": \"Bogota\"\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"nombre\": \"Aeropuerto 98\",\r\n        \"codigo\": \"A98\",\r\n        \"pais\": \"COLOMBIA98\",\r\n        \"ciudad\": \"Bogota98\"\r\n    },\r\n    {\r\n        \"id\": \"3e8fc9f8-a0e0-4e00-970e-55e2a51b8f81\",\r\n        \"nombre\": \"Aeropuerto X\",\r\n        \"codigo\": \"A0X\",\r\n        \"pais\": \"COLOMBIA\",\r\n        \"ciudad\": \"Bogota\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"

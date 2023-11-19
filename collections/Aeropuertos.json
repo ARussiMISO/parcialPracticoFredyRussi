@@ -182,13 +182,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/airports/{{airport_id_invalid}}",
+					"raw": "{{baseUrl}}/airports/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"airports",
-						"{{airport_id_invalid}}"
+						"0"
 					]
 				}
 			},
@@ -267,13 +267,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/airports/{{airport_id_invalid}}",
+					"raw": "{{baseUrl}}/airports/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"airports",
-						"{{airport_id_invalid}}"
+						"0"
 					]
 				}
 			},
@@ -334,13 +334,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/airports/{{airport_id_invalid}}",
+					"raw": "{{baseUrl}}/airports/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"airports",
-						"{{airport_id_invalid}}"
+						"0"
 					]
 				}
 			},

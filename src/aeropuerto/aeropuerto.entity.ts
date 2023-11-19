@@ -5,7 +5,7 @@ import { PrimaryGeneratedColumn, Column, ManyToMany, Entity } from "typeorm";
 
 @Entity()
 export class AeropuertoEntity {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     @IsNotEmpty()
     id: number;
   
